@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: typing-speed-battle-tridev
+    runtime: python
+    buildCommand: ./build.sh
+    startCommand: gunicorn typing_backend.wsgi:application
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.4
+      - key: DJANGO_SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: false
